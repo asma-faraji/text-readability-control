@@ -212,8 +212,6 @@ def main():
     evaluator = ReadabilityEvaluationMetric()
     origin_score = []
     paraphrase_score = []
-    # score_range = '95'
-    # file_name = 'para_95.json'
 
     data_path = base_path + '{file_name}'
     flesch_range = ['5', '20', '40', '55', '65', '75', '85', '95']
@@ -228,7 +226,7 @@ def main():
 
 
 
-    # evaluator.create_dataset_and_calc_scores(dataset)
+    evaluator.create_dataset_and_calc_scores(dataset)
 
     f  = open(base_path + 'original.json')
     original_final_dataset_scores = json.load(f)
@@ -240,4 +238,5 @@ def main():
     evaluator.get_rmse_score(original_final_dataset_scores, final_dataset_scores)
     evaluator.get_accuracy_metric(original_final_dataset_scores, final_dataset_scores)
 
-main()
+if __name__ == '__main__':
+    main()
